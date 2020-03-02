@@ -1,0 +1,141 @@
+body {
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #b2c8eb; 
+  background: #B2C8EB;
+  background: #B2C8EB;
+  background: -moz-linear-gradient(left, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
+  background: -webkit-linear-gradient(left, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
+  background: linear-gradient(to right, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
+  line-height: 1.8;
+}
+
+.page-header__logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  max-width: 100%;
+}
+
+.pokeText {
+  text-align: center;
+  padding: 10px;
+  line-height: 3;
+}
+
+.pokemon-list {
+  list-style-type: none;
+}
+
+.pokemon-list li {
+  margin: 5px;
+}
+
+.button-class {
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color:#FFCB05;
+  border-radius:10px;
+  border:1px solid #4e6096;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  padding:12px 37px;
+  margin:12px;
+  text-decoration:none;
+  text-transform: capitalize;
+  text-shadow:0px 1px 0px #283966;
+  width: 200px;
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.button-class:hover {
+  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color:#476e9e;
+}
+.button-class:active {
+  position:relative;
+  top:1px;
+}
+
+
+@media (max-width: 900px) { body {
+  font-size: 14px; }
+
+}
+
+@media (max-width: 600px) { body {
+  font-size: 12px; }
+}
+
+#modal-container {
+  display: none;
+}
+/* Behind the modal itself: */
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  /* to show it above other content */
+  z-index: 999;
+
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto;
+
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+/* The actual modal: */
+.modal {
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  border: 7px double gray;
+  border-radius: 40px;
+  background: #B2C7EB;
+}
+
+.modal-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: auto;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+}
+
+.modal h1 {
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+
+.modal p {
+  text-align: center;
+  margin-bottom: 0;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
