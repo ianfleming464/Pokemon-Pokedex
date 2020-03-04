@@ -1,7 +1,7 @@
 var pokemonRepository = (function () { //IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
-  var $modalContainer = document.querySelector('#modal-container');
+  var $modalContainer = $('#modal-container');
 
   function add(newPokemon) {
     repository.push(newPokemon);
@@ -12,14 +12,12 @@ var pokemonRepository = (function () { //IIFE
   }
 
   function addListItem(pokemon) {
-    var $pokeList = document.querySelector('.pokemon-list'); // the ul from HTML
-    var $button = document.createElement('button');
-    var $listItem = document.createElement('li');
-    $button.innerText = pokemon.name;
-    $button.classList.add('button-class');
-    $listItem.appendChild($button);
-    $pokeList.appendChild($listItem);
-    $button.addEventListener('click', function(event) {
+    var $pokeList = $('.pokemon-list'); // the ul from HTML
+    var $button = $('<button class = "button-class">' + pokemon.name + '</button>');
+    var $listItem = $('<li></li>');
+    $listItem.append($button);
+    $pokeList.append($listItem);
+    $button.on('click', function(event) {
       showDetails(pokemon);
     }
   );
@@ -33,15 +31,14 @@ function showDetails(item) {
 }
 
 function loadList() {
-  return fetch(apiUrl).then(function(response) {
-    return response.json();
-  }).then(function(json) {
+  return $.ajax(apiUrl, { dataType: 'json'}).then(function(json) {
     json.results.forEach(function(item) {
       var pokemon = {
         name: item.name,
         detailsUrl: item.url
       };
       add(pokemon);
+      console.log(pokemon);
     });
   }).catch(function(e) {
     console.error(e);
@@ -50,9 +47,7 @@ function loadList() {
 
 function loadDetails(item) { // Loading the details from the API
   var url = item.detailsUrl;
-  return fetch(url).then(function(response) {
-    return response.json();
-  }).then(function(details) { //Now we add the details to the items
+  return $.ajax(url, { dataType: 'json'}).then(function(details) { //Now we add the details to the items
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     // item.types = Object.keys(details.types); //this returns an array of details
@@ -68,75 +63,64 @@ function loadDetails(item) { // Loading the details from the API
 function showModal(item) {
   // Clear all existing modal content
 
-  $modalContainer.innerHTML = '';
-
-  var modal = document.createElement('div');
-  modal.classList.add('modal');
+  $modalContainer.empty();
+  var modal = $('<div class="modal"></div>');
 
   // Makes modal appear
-  $modalContainer.classList.add('is-visible');
+  $modalContainer.addClass('is-visible');
 
   // Closes modal upon clicking close button
-  var closeButtonElement = document.createElement('button');
-  closeButtonElement.classList.add('modal-close');
-  closeButtonElement.innerText = 'Close';
-  closeButtonElement.style.fontFamily = 'Play';
-  closeButtonElement.addEventListener('click', hideModal);
+  var closeButtonElement = $('<button class = "modal-close" style = "font-family:Play;">' + 'Close' + '</button>');
 
-  // This will be the Pokemon's name element
-  var nameElement = document.createElement('h1');
-  nameElement.innerText = item.name;
+  // closeButtonElement.style.fontFamily = 'Play';
+  closeButtonElement.on('click', hideModal);
 
-  // This will be the Pokemon's height element
-  var heightElement = document.createElement('p');
-  heightElement.innerText = 'Height: ' + item.height;
+  // Pokemon's name element
+  var nameElement = $('<h1>' + item.name +'</h1>');
 
-  // Image - able for a less pixelated verision? ASK
-  var imageElement = document.createElement('img');
-  imageElement.classList.add('modal-img');
-  imageElement.setAttribute('src', item.imageUrl);
-  // Types?
-  var typesElement = document.createElement('p');
-  typesElement.innerText = 'Types: ' + ' ' + item.types;
+  //Pokemon's height element
+  var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
 
-  // ADding the different bits to the modal itself in the DOM
-  modal.appendChild(closeButtonElement);
-  modal.appendChild(nameElement);
-  modal.appendChild(typesElement);
-  modal.appendChild(heightElement);
-  modal.appendChild(imageElement);
-  $modalContainer.appendChild(modal);
+  // Image - able for a less pixelated version? ASK
+  var imageElement = $('<img class="modal-img">');
+  imageElement.attr('src', item.imageUrl);
 
-  $modalContainer.classList.add('is-visible');
+  // Pokemon's types
+  var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
+
+  // Adding the different bits to the modal itself in the DOM
+  modal.append(closeButtonElement);
+  modal.append(nameElement);
+  modal.append(typesElement);
+  modal.append(heightElement);
+  modal.append(imageElement);
+  $modalContainer.append(modal);
 }
-
-// var dialogPromiseReject; //This can be set later by showDialog
 
 function hideModal() {
-  $modalContainer.classList.remove('is-visible');
-
-  if (dialogPromiseReject) {
-    dialogPromiseReject();
-    dialogPromiseReject = null;
-  }
+  $modalContainer.removeClass('is-visible');
 }
 
-window.addEventListener('keydown', e => {
-  if (
-    e.key === 'Escape' &&
-    $modalContainer.classList.contains('is-visible')
+$(window).keydown('keydown', e => { //ASK MENTOR!
+  if (e.key === 'Escape' &&
+    $modalContainer.hasClass('is-visible')
   ) {
     hideModal();
   }
 });
 
-$modalContainer.addEventListener('click', e => {
+$modalContainer.on('click', e => {
   var target = e.target;
   if (target === $modalContainer) {
     hideModal();
   }
 });
 
+$("body").click((e) => {
+    if (e.target.className === "is-visible") {
+      hideModal()
+    }
+  });
 
 return { //the keys: IIFE functions; the values: what the outside world knows them as
   add: add,
@@ -147,7 +131,6 @@ return { //the keys: IIFE functions; the values: what the outside world knows th
   showDetails: showDetails,
   showModal: showModal,
   hideModal: hideModal
-
 };
 
 })();
@@ -157,4 +140,3 @@ pokemonRepository.loadList().then(function() {   // Now the data is loaded
     pokemonRepository.addListItem(pokemon);
   });
 });
- 
