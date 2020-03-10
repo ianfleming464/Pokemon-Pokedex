@@ -13,42 +13,35 @@
 
 
   <!-- Nav bar with search -->
-<div class="container-fluid mb-5">
-  <nav class='navbar navbar-expand-sm navbar-light bg-light fixed-top'>
-    <a class="navbar-brand" href="#">
-      <img src="psyduck.svg" width="30" height="30" alt=""></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">_about <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link active" href="#">_pokemon.com</a>
-          <form class="form-block">
-            <div class="row">
-              <div class="col-10">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <div class="container-fluid mb-5">
+    <nav class='navbar navbar-expand-sm navbar-light bg-light fixed-top'>
+      <a class="navbar-brand" href="https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki" target="_blank">
+        <img src="psyduck.svg" width="30" height="30" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link active" href="https://ianfleming464.github.io/portfolio-website/" target="_blank">Developer info<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="https://www.pokemon.com/us/pokedex/" target="_blank">Official Pokédex Site</a>
           </div>
-          <div class="col-2">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <!-- Search input -->
+          <div class="navbar-nav ml-auto">
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" id="myInput" type="search" autocomplete="off" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Reset search</button>
+            </form>
           </div>
-        </div>
-          </form>
-        </div>
       </div>
-
-  </nav>
-    </div>
+    </nav>
+  </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="col-12 modal-title text-center" id="exampleModalLabel"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="col-12 modal-title" id="exampleModalLabel"></h5>
           </div>
           <div class="modal-body">
           </div>
@@ -61,7 +54,7 @@
 
     <img src='img/pokemon_logo.png' alt='Pokemon logo Responsive image' class='page-header__logo img-fluid'>
     <div id='modal-container'></div>
-    <div class='pokeText container'>
+    <div class='pokeText container list-group list-group-flush' id='myDIV'>
       <ul class='list-unstyled pokemon-list'></ul>
     </div>
 
