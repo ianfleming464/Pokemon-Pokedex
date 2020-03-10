@@ -1,7 +1,6 @@
 var pokemonRepository = (function () { //IIFE
   var repository = [];
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=75';
-  var $modalContainer = $('#modal-container');
 
   function add(newPokemon) {
     repository.push(newPokemon);
@@ -13,7 +12,7 @@ var pokemonRepository = (function () { //IIFE
 
   function addListItem(pokemon) {
     var $pokeList = $('.pokemon-list'); // the ul from HTML
-    var $button = $('<button type="button" class = "btn btn-primary btn-lg btn-block button-class" data-target="#exampleModal" data-toggle="modal">' + pokemon.name + '</button>');
+    var $button = $('<button type="button" class = "btn btn-primary btn-lg btn-block button-class list-group-item" data-target="#exampleModal" data-toggle="modal">' + pokemon.name + '</button>');
     var $listItem = $('<li></li>');
     $listItem.append($button);
     $pokeList.append($listItem);
@@ -75,12 +74,10 @@ var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
 //   // Image
 var imageElement = $('<img class="modal-img">');
 imageElement.attr('src', item.imageUrl);
-//
 //   // Pokemon's types
 var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
 //
-//   // Adding the different bits to the modal itself in the DOM
-//   modal.append(closeButtonElement);
+
 modalTitle.append(nameElement);
 modalBody.append(typesElement);
 modalBody.append(heightElement);
@@ -101,5 +98,15 @@ return { //the keys: IIFE functions; the values: what the outside world knows th
 pokemonRepository.loadList().then(function() {   // Now the data is loaded
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
+  });
+});
+
+// Search bar functionality
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
   });
 });
