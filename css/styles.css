@@ -71,3 +71,12 @@ body {
 @media (max-width: 600px) { body {
   font-size: 12px; }
 }
+
+.modal-title {
+    text-transform: capitalize;
+  }
+
+.modal-body {
+  text-transform: capitalize;
+  text-align: center;
+}
