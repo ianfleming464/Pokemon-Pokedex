@@ -1,6 +1,6 @@
 var pokemonRepository = (function () { //IIFE
   var repository = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=75';
   var $modalContainer = $('#modal-container');
 
   function add(newPokemon) {
@@ -13,7 +13,7 @@ var pokemonRepository = (function () { //IIFE
 
   function addListItem(pokemon) {
     var $pokeList = $('.pokemon-list'); // the ul from HTML
-    var $button = $('<button class = "button-class">' + pokemon.name + '</button>');
+    var $button = $('<button type="button" class = "btn btn-primary btn-lg btn-block button-class" data-target="#exampleModal" data-toggle="modal">' + pokemon.name + '</button>');
     var $listItem = $('<li></li>');
     $listItem.append($button);
     $pokeList.append($listItem);
@@ -25,7 +25,7 @@ var pokemonRepository = (function () { //IIFE
 
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function() {
-    // console.log(item);
+    console.log(item);
     showModal(item);
   });
 }
@@ -52,76 +52,40 @@ function loadDetails(item) { // Loading the details from the API
     item.height = details.height;
     // item.types = Object.keys(details.types); //this returns an array of details
     item.types = []; // Loop to go through the types and add them, if there's more than 1
-        for (var i = 0; i < details.types.length; i++) {
-          item.types.push(details.types[i].type.name);
-        }
+    for (var i = 0; i < details.types.length; i++) {
+      item.types.push(details.types[i].type.name);
+    }
   }).catch(function(e) {
     console.error(e);
   });
 }
 
 function showModal(item) {
-  // Clear all existing modal content
 
-  $modalContainer.empty();
-  var modal = $('<div class="modal"></div>');
+  var modalBody = $('.modal-body');
+  var modalTitle = $('.modal-title');
+  modalBody.empty();
+  modalTitle.empty();
 
-  // Makes modal appear
-  $modalContainer.addClass('is-visible');
 
-  // Closes modal upon clicking close button
-  var closeButtonElement = $('<button class = "modal-close" style = "font-family:Play;">' + 'Close' + '</button>');
-
-  // closeButtonElement.style.fontFamily = 'Play';
-  closeButtonElement.on('click', hideModal);
-
-  // Pokemon's name element
-  var nameElement = $('<h1>' + item.name +'</h1>');
-
-  //Pokemon's height element
-  var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
-
-  // Image - able for a less pixelated version? ASK
-  var imageElement = $('<img class="modal-img">');
-  imageElement.attr('src', item.imageUrl);
-
-  // Pokemon's types
-  var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
-
-  // Adding the different bits to the modal itself in the DOM
-  modal.append(closeButtonElement);
-  modal.append(nameElement);
-  modal.append(typesElement);
-  modal.append(heightElement);
-  modal.append(imageElement);
-  $modalContainer.append(modal);
+//   // Pokemon's name element
+var nameElement = $('<h1>' + item.name +'</h1>');
+//   //Pokemon's height element
+var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
+//   // Image
+var imageElement = $('<img class="modal-img">');
+imageElement.attr('src', item.imageUrl);
+//
+//   // Pokemon's types
+var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
+//
+//   // Adding the different bits to the modal itself in the DOM
+//   modal.append(closeButtonElement);
+modalTitle.append(nameElement);
+modalBody.append(typesElement);
+modalBody.append(heightElement);
+modalBody.append(imageElement);
 }
-
-function hideModal() {
-  $modalContainer.removeClass('is-visible');
-}
-
-$(window).keydown('keydown', e => { //ASK MENTOR!
-  if (e.key === 'Escape' &&
-    $modalContainer.hasClass('is-visible')
-  ) {
-    hideModal();
-  }
-});
-
-$modalContainer.on('click', e => {
-  var target = e.target;
-  if (target === $modalContainer) {
-    hideModal();
-  }
-});
-
-$("body").click((e) => {
-    if (e.target.className === "is-visible") {
-      hideModal()
-    }
-  });
-
 return { //the keys: IIFE functions; the values: what the outside world knows them as
   add: add,
   getAll: getAll,
@@ -129,8 +93,7 @@ return { //the keys: IIFE functions; the values: what the outside world knows th
   loadList: loadList,
   loadDetails: loadDetails,
   showDetails: showDetails,
-  showModal: showModal,
-  hideModal: hideModal
+  showModal: showModal
 };
 
 })();
