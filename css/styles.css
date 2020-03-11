@@ -3,8 +3,6 @@ body {
   font-weight: 400;
   font-size: 16px;
   background-color: #b2c8eb;
-  background: #B2C8EB;
-  background: #B2C8EB;
   background: -moz-linear-gradient(left, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
   background: -webkit-linear-gradient(left, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
   background: linear-gradient(to right, #B2C8EB 0%, #5A96B0 48%, #B2C8EB 100%);
@@ -16,66 +14,64 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 50px 25px 25px;
-  /* max-width: 100%; */
 }
 
 .pokeText {
-  /* max-width: auto; */
   text-align: center;
 
   padding: 10px;
   line-height: 3;
-} */
+  }
 
-.pokemon-list {
-  list-style-type: none;
-}
+  .pokemon-list {
+    list-style-type: none;
+  }
 
-.pokemon-list li {
-  margin: 5px;
-}
+  .pokemon-list li {
+    margin: 5px;
+  }
 
-.button-class {
-  box-shadow: 0px 0px 0px 2px #9fb4f2;
-  background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-  background-color:#FFCB05;
-  border-radius:10px;
-  border:1px solid #4e6096;
-  cursor:pointer;
-  color:#ffffff;
-  padding:12px 37px;
-  margin:12px;
-  text-decoration:none;
-  text-transform: capitalize;
-  text-shadow:0px 1px 0px #283966;
-  font-family: 'Play', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
+  .button-class {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color:#FFCB05;
+    border-radius:10px;
+    border:1px solid #4e6096;
+    cursor:pointer;
+    color:#ffffff;
+    padding:12px 37px;
+    margin:12px;
+    text-decoration:none;
+    text-transform: capitalize;
+    text-shadow:0px 1px 0px #283966;
+    font-family: 'Play', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
 
-.button-class:hover {
-  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-  background-color:#476e9e;
-}
-.button-class:active {
-  position:relative;
-  top:1px;
-}
+  .button-class:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background-color:#476e9e;
+  }
+  .button-class:active {
+    position:relative;
+    top:1px;
+  }
 
-.modal-title {
+  .modal-title {
     text-transform: capitalize;
     text-align: center;
   }
 
-.modal-body {
-  text-transform: capitalize;
-  text-align: center;
-}
+  .modal-body {
+    text-transform: capitalize;
+    text-align: center;
+  }
 
-.navbar
-     {
-  border-bottom: 1px;     
-  border-bottom-style: dotted;
-  opacity: 0.9;
-  border-bottom-color: #78A7C3;
-     }
+  .navbar
+  {
+    border-bottom: 1px;
+    border-bottom-style: dotted;
+    opacity: 0.9;
+    border-bottom-color: #78A7C3;
+  }
