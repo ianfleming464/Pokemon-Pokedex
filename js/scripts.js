@@ -67,21 +67,21 @@ function showModal(item) {
   modalTitle.empty();
 
 
-//   // Pokemon's name element
-var nameElement = $('<h1>' + item.name +'</h1>');
-//   //Pokemon's height element
-var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
-//   // Image
-var imageElement = $('<img class="modal-img">');
-imageElement.attr('src', item.imageUrl);
-//   // Pokemon's types
-var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
-//
+  //   // Pokemon's name element
+  var nameElement = $('<h1>' + item.name +'</h1>');
+  //   //Pokemon's height element
+  var heightElement = $('<p>' + 'Height: ' + item.height + '</p>');
+  //   // Image
+  var imageElement = $('<img class="modal-img">');
+  imageElement.attr('src', item.imageUrl);
+  //   // Pokemon's types
+  var typesElement = $('<p>' + 'Types: ' + item.types + '</p>');
+  //
 
-modalTitle.append(nameElement);
-modalBody.append(typesElement);
-modalBody.append(heightElement);
-modalBody.append(imageElement);
+  modalTitle.append(nameElement);
+  modalBody.append(typesElement);
+  modalBody.append(heightElement);
+  modalBody.append(imageElement);
 }
 return { //the keys: IIFE functions; the values: what the outside world knows them as
   add: add,
