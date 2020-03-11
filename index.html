@@ -3,6 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel='stylesheet' type='text/css' href='css/styles.css'>
   <title>Pokemon | JQuery edition</title>
@@ -26,16 +27,17 @@
             <a class="nav-item nav-link active" href="https://ianfleming464.github.io/portfolio-website/" target="_blank">Developer info<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="https://www.pokemon.com/us/pokedex/" target="_blank">Official Pokédex Site</a>
           </div>
-            <!-- Search input -->
+
+          <!-- Search input -->
           <div class="navbar-nav ml-auto">
             <form class="form-inline">
               <input class="form-control mr-sm-2" id="myInput" type="search" autocomplete="off" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Reset search</button>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Reset search</button>
             </form>
           </div>
-      </div>
-    </nav>
-  </div>
+        </div>
+      </nav>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,18 +60,18 @@
       <div class="row">
         <div class="col"></div>
         <div class='pokeText col col-md-9 list-group list-group-flush' id='myDIV'>
-        <ul class='list-unstyled pokemon-list col'></ul></div>
-        <div class="col"></div>
+          <ul class='list-unstyled pokemon-list col'></ul></div>
+          <div class="col"></div>
+        </div>
       </div>
-    </div>
 
 
-    <script src='js/promise-polyfill.js' defer></script>  <!-- Promises polyfill -->
-    <script src='js/fetch.umd.js' defer></script>  <!-- Fetch polyfill -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src='js/scripts.js' defer></script>
-  </body>
-  </html>
+      <script src='js/promise-polyfill.js' defer></script>  <!-- Promises polyfill -->
+      <script src='js/fetch.umd.js' defer></script>  <!-- Fetch polyfill -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src='js/scripts.js' defer></script>
+    </body>
+    </html>
