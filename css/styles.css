@@ -16,11 +16,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 50px 25px 25px;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 .pokeText {
-  max-width: auto;
+  /* max-width: auto; */
   text-align: center;
 
   padding: 10px;
@@ -62,16 +62,6 @@ body {
   top:1px;
 }
 
-
-@media (max-width: 900px) { body {
-  font-size: 14px; }
-
-}
-
-@media (max-width: 600px) { body {
-  font-size: 12px; }
-}
-
 .modal-title {
     text-transform: capitalize;
     text-align: center;
@@ -84,6 +74,8 @@ body {
 
 .navbar
      {
-         border-bottom:5px dotted: #78A7C3;
-         opacity: 0.9;
+  border-bottom: 1px;     
+  border-bottom-style: dotted;
+  opacity: 0.9;
+  border-bottom-color: #78A7C3;
      }
