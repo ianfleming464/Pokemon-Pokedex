@@ -14,13 +14,14 @@
 
   <!-- Nav bar with search -->
   <div class="container-fluid mb-5">
-    <nav class='navbar navbar-expand-sm navbar-light bg-light fixed-top'>
+    <nav class='navbar navbar-expand-md navbar-light bg-light fixed-top'>
       <a class="navbar-brand" href="https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki" target="_blank">
         <img src="psyduck.svg" width="30" height="30" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="collapse navbar-collapse" id="navbarNav">
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link active" href="https://ianfleming464.github.io/portfolio-website/" target="_blank">Developer info<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="https://www.pokemon.com/us/pokedex/" target="_blank">Official Pokédex Site</a>
@@ -53,10 +54,15 @@
     </div>
 
     <img src='img/pokemon_logo.png' alt='Pokemon logo Responsive image' class='page-header__logo img-fluid'>
-    <div id='modal-container'></div>
-    <div class='pokeText container list-group list-group-flush' id='myDIV'>
-      <ul class='list-unstyled pokemon-list'></ul>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class='pokeText col col-md-9 list-group list-group-flush' id='myDIV'>
+        <ul class='list-unstyled pokemon-list col'></ul></div>
+        <div class="col"></div>
+      </div>
     </div>
+
 
     <script src='js/promise-polyfill.js' defer></script>  <!-- Promises polyfill -->
     <script src='js/fetch.umd.js' defer></script>  <!-- Fetch polyfill -->
