@@ -21,7 +21,7 @@ var pokemonRepository = (function() {
     var $listItem = $("<li></li>");
     $listItem.append($button);
     $pokeList.append($listItem);
-    $button.on("click", function(event) {
+    $button.on("click", function() {
       showDetails(pokemon);
     });
   }
